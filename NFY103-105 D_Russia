@@ -1,0 +1,311 @@
+
+  var css = `
+.change-header-box-shadow{
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 12%) !important;
+}
+  .container-sticky-area {
+    display: none ;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: fixed !important;
+    bottom: 0px !important;
+    z-index: 1000 !important;
+    background-color: #fff !important;
+    width: 100% !important;
+    height: 80px !important;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px 17px 11px 15px;
+}
+.change-sticky-display{
+    display: flex !important;
+}
+.container-sticky-left {
+    display: flex;
+    align-items: center;
+}
+.sticy-product-name {
+     font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #302e2b;
+    max-width: 391px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+.sticy-product-sku {
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #6b778d;
+}
+.sticy-product-info-container {
+    margin-left: 12px;
+}
+.container-sticky-right {
+    display: flex;
+    align-items: center;
+    margin-top: 11px;
+}
+.sticy-product-add-to-cart{
+    min-width: 268px;
+    height: 50px;
+    margin: 1px 15px 19px 26px;
+    padding: 13px 27px 13px 28px;
+    border-radius: 3px;
+    background-color: #183db0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+}
+div.container-sticky-area > div.container-sticky-right > div:nth-child(1) > div > div > span.old-price {
+    height: 22px;
+    margin: 7px 9px 3px 0;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #555;
+}
+div.container-sticky-area > div.container-sticky-right > div:nth-child(1) > div > div > span.price {
+    height: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #183db0;
+}
+.sticky-product-price{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+div.container-sticky-area > div.container-sticky-right > div:nth-child(1) > div > span {
+    color: #f76262;
+    border: 1px solid #f76262;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px 0px 9px 23px;
+    width: 76px;
+    height: 47.5px;
+    padding: 6px 13px 5px;
+}
+div.container-sticky-area > div.container-sticky-right > div:nth-child(1) > div > span > p#lblCouponAmount {
+    font-size: 12px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+div.container-sticky-area > div.container-sticky-right > div:nth-child(1) > div > span > p:nth-child(1) {
+    margin: 0px !important;
+}
+.container-sticky-middle{
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #302e2b;
+    display: flex;
+    align-items: center;
+}
+.sticky-product-size{
+    position: relative;
+    display: inline-block;
+    height: 30px!important;
+    min-width: 30px!important;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0 10px;
+    background-color: #4e8bfd !important;
+    font-weight: bold!important;
+    color: #fff!important;
+    border: 0!important;
+    min-height: initial!important;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+.sticky-product-size-pa{
+    opacity: 0.76;
+}
+.add-aling-items{
+align-items: center !important;
+display: flex !important;
+}
+.sticy-product-add-to-cart:hover {
+    opacity: 0.9;
+}
+div.container-sticky-area > div.container-sticky-right > div.sticky-product-price > div > div.campaign-discount-detail {
+    margin-top: 20px !important;
+}
+            `;
+  var style = document.createElement("style");
+  style.appendChild(document.createTextNode(css));
+  document.head.appendChild(style);
+
+function changeText(params) {
+  if(!!!document.querySelector(".out-of-stock")){
+  var cloneProductTitles = document.querySelector('#productInfo').querySelector(".product-title").innerText;
+var cloneProductSku = document.querySelector('#productInfo').querySelector(".product-code").innerText;
+var clonePriceArea = document.querySelector('#productInfo').querySelector(".col-xs-12.price-area").cloneNode(true);
+clonePriceArea.querySelector('.price-label').remove();
+var innerPriceArea = clonePriceArea.innerHTML;
+var cloneAddToCartBtn = document.querySelector('#productInfo').querySelector("#pd_add_to_cart").cloneNode(true);
+var innerAddToCartBtn = cloneAddToCartBtn.innerHTML;
+cloneAddToCartBtn.classList.add('second-add-to-cart');
+var createNewDiv = document.querySelector('div');
+createNewDiv.classList.add('container-sticky-area');
+createNewDiv.innerHTML = `
+<div class = "container-sticky-left">
+<div class = "sticy-product-img"><img src = "${theModel.Options[0].Images[0].SmallImage}" style="width: 45px;height: 59px;"></div>
+<div class = "sticy-product-info-container">
+<div class = "sticy-product-name">${cloneProductTitles}</div>
+<div class = "sticy-product-sku">${cloneProductSku}</div>
+</div>
+</div>
+
+<div class = "container-sticky-middle"></div>
+
+<div class = "container-sticky-right">
+<div class = "sticky-product-price">${innerPriceArea}</div> 
+<div class = "sticy-product-add-to-cart">${innerAddToCartBtn}</div> 
+</div>`;
+
+
+
+
+
+document.querySelector(`.product-detail`).insertAdjacentElement('afterbegin',createNewDiv);
+
+document.querySelector("div.container-sticky-right > div.sticky-product-price").firstElementChild.classList.add("add-aling-items")
+document.querySelector(".sticy-product-add-to-cart").addEventListener('click',function(e) {
+    document.querySelector('#productInfo').querySelector("#pd_add_to_cart").click();
+})
+
+    const options = {
+    rootMargin: '-110px',
+    threshold: 0
+  }
+  
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) { 
+           document.querySelector(".container-sticky-area").classList.add("change-sticky-display");
+           document.querySelector(".container-fluid.header").classList.add("change-header-box-shadow");
+        }
+        else {
+          document.querySelector(".container-sticky-area").classList.remove("change-sticky-display");
+          document.querySelector(".container-fluid.header").classList.remove("change-header-box-shadow");
+        }
+    })
+  }
+  
+  const observer = new IntersectionObserver(callback, options);
+
+  const targetEl = document.querySelector("#pd_add_to_cart");
+
+observer.observe(targetEl);
+
+document.querySelector(".container-sticky-area").removeAttribute('id');
+  
+  
+  }
+var ttt = document.querySelector("#OptionImage0").currentSrc;
+  
+console.log(theModel.Options[0].Images[0].SmallImage)
+}
+
+
+function mut(params) {
+    
+  if(!!!document.querySelector(".out-of-stock")){
+      if (!!document.querySelector(`.popover.fade.top.in`)) {
+        window.scrollTo(0, 0);
+    }
+    var size ;
+    var height ;
+document.querySelector(".option-size").querySelectorAll("a").forEach(element => {
+    if (element.classList.contains("selected")) {
+    size = element.innerText
+    }
+});
+!!document.querySelector(".option-height") && document.querySelector(".option-height").querySelectorAll("a").forEach(element => {
+    if (element.classList.contains("selected")) {
+    height = element.innerText
+    }
+});
+
+if (!!document.querySelector("#option-height")) {
+    if (!!size && !!height) {
+        document.querySelector(".container-sticky-middle").innerHTML =`<div><span class="sticky-product-size-pa">Размер:</span><span class="sticky-product-size">${size}</span></div><div><span class="sticky-product-size-pa">Рост:</span><span class="sticky-product-size">${height}</span></div>`
+    }
+}else {
+   if (!!size) {
+    document.querySelector(".container-sticky-middle").innerHTML =`<span class="sticky-product-size-pa">Размер:</span><span class="sticky-product-size">${size}</span>`
+   }
+}
+
+ if (!!document.querySelector("#option-height")) {
+   var t = 0;
+  
+!!document.querySelector(".option-height") && document.querySelector(".option-height").querySelectorAll("a").forEach(element => {
+    if (element.classList.contains("selected")) {
+        t++;
+    }
+});
+ if (t == 0) {
+      document.querySelector(".container-sticky-middle").innerHTML ='';   
+    }
+ }
+  
+!!document.querySelector(".sticky-product-size") && document.querySelectorAll(".sticky-product-size").forEach(element => {
+    element.addEventListener("click", function (){
+        window.scrollTo(0, 0);
+    })
+});
+  }
+
+}
+
+
+
+ready();
+function ready() {
+    if (document.readyState == "loading") {
+        document.addEventListener("DOMContentLoaded", changeText);
+      document.addEventListener("DOMContentLoaded", mut);
+    } else {
+        changeText();
+      mut();
+    }
+    window.addEventListener("load", function () {
+        var dom_observer = new MutationObserver(function (mutation) {
+                setTimeout(() => {
+                    mut();
+                }, 0.2);
+        })
+        var container = document.body
+        var configs = { subtree: false, attributes: false, childList: true, characterData: false }
+        dom_observer.observe(container, configs)
+    })
+} 
