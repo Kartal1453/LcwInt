@@ -17,6 +17,7 @@
     // Trustpilot Bar Content
     trustpilotBar.innerHTML = `
         <div style="display: flex; align-items: center; gap: 10px; max-width: 1200px; margin: auto;">
+            <span class="desktop-only" style="font-size: 14px; font-weight: bold; margin-right: 10px;">Real reviews from real people. No fake ratings, just honest feedback!</span>
             <span style="font-weight: bold; font-size: 18px;">Excellent</span>
             
             <!-- Trustpilot Stars Image -->
