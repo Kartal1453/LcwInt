@@ -3,36 +3,33 @@
     let trustpilotBar = document.createElement("div");
     trustpilotBar.id = "custom-trustpilot-bar";
     trustpilotBar.style.width = "100%";
-    trustpilotBar.style.backgroundColor = "#12284C"; // Background color from screenshot
+    trustpilotBar.style.backgroundColor = "#1C2B47"; // Adjusted background color to match the screenshot
     trustpilotBar.style.color = "#ffffff";
     trustpilotBar.style.padding = "10px 0";
     trustpilotBar.style.display = "flex";
     trustpilotBar.style.justifyContent = "center";
     trustpilotBar.style.alignItems = "center";
-    trustpilotBar.style.fontFamily = "'Arial', sans-serif";
-    trustpilotBar.style.fontSize = "14px";
+    trustpilotBar.style.fontFamily = "Arial, sans-serif";
+    trustpilotBar.style.fontSize = "16px";
     trustpilotBar.style.zIndex = "9999";
     trustpilotBar.style.position = "relative";
 
     // Trustpilot Bar Content
     trustpilotBar.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 12px; max-width: 1200px; margin: auto;">
-            <span style="font-weight: bold;">Excellent</span>
-
-            <!-- Trustpilot Stars SVG -->
-            <svg width="80" height="16" viewBox="0 0 135 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#00B67A" d="M12.7 1.1l3.7 7.5 8.3 1.2-6 5.8 1.4 8.2-7.4-3.9-7.4 3.9 1.4-8.2-6-5.8 8.3-1.2 3.7-7.5zM37.7 1.1l3.7 7.5 8.3 1.2-6 5.8 1.4 8.2-7.4-3.9-7.4 3.9 1.4-8.2-6-5.8 8.3-1.2 3.7-7.5zM62.7 1.1l3.7 7.5 8.3 1.2-6 5.8 1.4 8.2-7.4-3.9-7.4 3.9 1.4-8.2-6-5.8 8.3-1.2 3.7-7.5zM87.7 1.1l3.7 7.5 8.3 1.2-6 5.8 1.4 8.2-7.4-3.9-7.4 3.9 1.4-8.2-6-5.8 8.3-1.2 3.7-7.5zM112.7 1.1l3.7 7.5 8.3 1.2-6 5.8 1.4 8.2-7.4-3.9-7.4 3.9 1.4-8.2-6-5.8 8.3-1.2 3.7-7.5z"/>
-            </svg>
-
-            <!-- Trustpilot Logo SVG -->
-            <a href="https://www.trustpilot.com/review/YOUR_WEBSITE_URL" target="_blank" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 5px;">
-                <svg width="90" height="18" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="30" fill="#ffffff" font-family="Arial, sans-serif" font-size="30" font-weight="bold">Trustpilot</text>
+        <div style="display: flex; align-items: center; gap: 10px; max-width: 1200px; margin: auto;">
+            <span style="font-weight: bold; font-size: 18px;">Excellent</span>
+            
+            <!-- Trustpilot Stars Image -->
+            <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg" alt="Trustpilot 5 stars" width="100" height="20" style="display: block;" />
+            
+            <!-- Reviews Count and Trustpilot Logo -->
+            <a href="https://www.trustpilot.com/review/leadgenjay.com" target="_blank" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 5px; font-size: 14px; font-weight: bold;">
+                <span>84 reviews on</span>
+                <svg role="img" viewBox="0 0 26 31" xmlns="http://www.w3.org/2000/svg" style="height: 20px; width: auto;">
+                    <path fill="#00B67A" d="M30.141707 11.07005H18.63164L15.076408.177071l-3.566342 10.892977L0 11.059002l9.321376 6.739063-3.566343 10.88193 9.321375-6.728016 9.310266 6.728016-3.555233-10.88193 9.310266-6.728016z"></path>
                 </svg>
-                <span>9,160 reviews on Trustpilot</span>
+                <span style="font-size: 14px; font-weight: bold;">Trustpilot</span>
             </a>
-
-            <span style="margin-left: auto; color: #ffffff;">Exclusive Savings &nbsp;&nbsp; | &nbsp;&nbsp; Today's Hours: 10-4 PM EST</span>
         </div>
     `;
 
@@ -44,4 +41,3 @@
         document.body.prepend(trustpilotBar);
     }
 })();
-
