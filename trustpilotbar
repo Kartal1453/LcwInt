@@ -36,7 +36,22 @@
         <style>
             @media (max-width: 600px) {
                 .desktop-only { display: none; }
+                .CTA-BUTTON{
+                    background: #0144F8 !important;
+                }
             }
+            
+            @media (min-width: 601px) {
+                .CTA-BUTTON {
+                    background: #0144F8 !important;
+                }
+            }
+             .sub-heading-FCjoL9rhXj {
+                background: #000 !important;
+                }
+                #image-JSm0QYS--R {
+                display: none!important;
+                }
         </style>
     `;
 
