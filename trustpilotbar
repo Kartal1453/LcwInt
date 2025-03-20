@@ -64,7 +64,7 @@
     }
 
     // Swap two desktop-only divs using correct class selection
-    window.addEventListener("load", function() {
+    
         let firstDiv = document.querySelector("div.col-hMPp39-auu.desktop-only");
         let secondDiv = document.querySelector("div.col-zNWSXNhMcA.desktop-only");
         
@@ -72,5 +72,5 @@
             let parent = firstDiv.parentNode;
             parent.insertBefore(secondDiv, firstDiv);
         }
-    });
+  
 })();
