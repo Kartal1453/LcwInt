@@ -74,3 +74,107 @@
         }
   
 })();
+
+/////////////////////
+
+
+
+(function() {
+    function applyABTestChanges() {
+        if (typeof convert !== "undefined") {
+            console.log("Convert loaded, applying changes...");
+            
+            // Trustpilot bar container
+            let trustpilotBar = document.createElement("div");
+            trustpilotBar.id = "custom-trustpilot-bar";
+            trustpilotBar.style.width = "100%";
+            trustpilotBar.style.backgroundColor = "#1C2B47";
+            trustpilotBar.style.color = "#ffffff";
+            trustpilotBar.style.padding = "10px 0";
+            trustpilotBar.style.display = "flex";
+            trustpilotBar.style.justifyContent = "center";
+            trustpilotBar.style.alignItems = "center";
+            trustpilotBar.style.fontFamily = "Arial, sans-serif";
+            trustpilotBar.style.fontSize = "16px";
+            trustpilotBar.style.zIndex = "9999";
+            trustpilotBar.style.position = "relative";
+            
+            // Trustpilot Bar Content
+            trustpilotBar.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px; max-width: 1200px; margin: auto;">
+                    <span class="desktop-only" style="font-size: 14px; font-weight: bold; margin-right: 10px;">Real reviews from real people. No fake ratings, just honest feedback!</span>
+                    <span style="font-weight: bold; font-size: 18px;">Excellent</span>
+                    
+                    <!-- Trustpilot Stars Image -->
+                    <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg" alt="Trustpilot 5 stars" width="100" height="20" style="display: block;" />
+                    
+                    <!-- Reviews Count and Trustpilot Logo -->
+                    <a href="https://www.trustpilot.com/review/leadgenjay.com" target="_blank" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 5px; font-size: 14px; font-weight: bold;">
+                        <span class="desktop-only">84 reviews on</span>
+                        <svg role="img" viewBox="0 0 26 31" xmlns="http://www.w3.org/2000/svg" style="height: 20px; width: auto;">
+                            <path fill="#00B67A" d="M30.141707 11.07005H18.63164L15.076408.177071l-3.566342 10.892977L0 11.059002l9.321376 6.739063-3.566343 10.88193 9.321375-6.728016 9.310266 6.728016-3.555233-10.88193 9.310266-6.728016z"></path>
+                        </svg>
+                        <span style="font-size: 14px; font-weight: bold;">Trustpilot</span>
+                    </a>
+                </div>
+                
+                <style>
+                    @media (max-width: 600px) {
+                        .desktop-only { display: none; }
+                        .CTA-BUTTON{
+                            background: #0144F8 !important;
+                        }
+                    }
+                    
+                    @media (min-width: 601px) {
+                        .CTA-BUTTON {
+                            background: #0144F8 !important;
+                        }
+                    }
+                    .sub-heading-FCjoL9rhXj {
+                        background: #000 !important;
+                    }
+                    #image-JSm0QYS--R {
+                        display: none!important;
+                    }
+                </style>
+            `;
+            
+            // Insert above the header
+            let header = document.querySelector("header");
+            if (header) {
+                header.parentNode.insertBefore(trustpilotBar, header);
+            } else {
+                document.body.prepend(trustpilotBar);
+            }
+            
+            // Swap two desktop-only divs using correct class selection
+            let firstDiv = document.querySelector("div.col-hMPp39-auu.desktop-only");
+            let secondDiv = document.querySelector("div.col-zNWSXNhMcA.desktop-only");
+            
+            if (firstDiv && secondDiv) {
+                let parent = firstDiv.parentNode;
+                parent.insertBefore(secondDiv, firstDiv);
+            }
+            
+            // Change button background color based on device type
+            if (window.innerWidth <= 600) {
+                let mobileButton = document.getElementById("button-3xpv6WtSI_btn");
+                if (mobileButton) {
+                    mobileButton.style.background = "#0144F8";
+                }
+            } else {
+                let desktopButton = document.getElementById("button-phVyCWGjNT_btn");
+                if (desktopButton) {
+                    desktopButton.style.background = "#0144F8";
+                }
+            }
+        } else {
+            console.log("Convert not loaded, retrying...");
+            setTimeout(applyABTestChanges, 100); // Retry if Convert hasn't loaded yet
+        }
+    }
+    
+    applyABTestChanges();
+})();
+
